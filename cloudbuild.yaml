@@ -31,3 +31,7 @@ steps:
   - name: 'gcr.io/cloud-builders/docker'
     id: 'Push deployable image (latest tag)'
     args: ['push', 'gcr.io/$PROJECT_ID/cicd_demo:latest']
+
+images:
+  - 'gcr.io/$PROJECT_ID/cicd_demo:$SHORT_SHA'
+  - 'gcr.io/$PROJECT_ID/cicd_demo:latest'
