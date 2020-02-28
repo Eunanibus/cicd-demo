@@ -13,14 +13,14 @@ subject_json=$(curl --url "https://api.github.com/graphql?access_token=$access_t
         --data "{ \"query\": \"{ search(first: 1, type: ISSUE, query: \\\"type:pr repo:eunanibus/cicd-demo $COMMIT_SHA\\\") { nodes { ... on PullRequest { id, number, title } } } }\" }")
 
 echo ">> Received..."
-echo $subject_json
+echo "$subject_json"
 
 # extract the subject ID from the JSON string using Python's JSON module
-subject_id=`echo $subject_json | python -c 'import sys, json; print json.load(sys.stdin)["data"]["search"]["nodes"][0]["id"]'`
+subject_id=$(echo "$subject_json" | python -c 'import sys, json; print json.load(sys.stdin)["data"]["search"]["nodes"][0]["id"]')
 
 if [ $? -eq 1 ]; then
     echo "Could not get Subject ID. Abort."
-    echo $subject_id
+    echo "$subject_id"
     exit 0;
 fi
 
@@ -30,4 +30,3 @@ body="☸️ Build auto-deployed at: $PREVIEW_BUILD_URL"
 curl --url "https://api.github.com/graphql?access_token=$access_token" \
   --header 'content-type: application/json' \
   --data "{ \"query\": \"mutation AddCommentToIssue { addComment(input: {subjectId: \\\"$subject_id\\\", body: \\\"$body\\\"}) { clientMutationId } }\" }"
-© 2020

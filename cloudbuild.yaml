@@ -59,13 +59,13 @@ steps:
 
   # Send the preview domain to the issue thread on GitHub
 
-  - name: 'google/cloud-sdk:alpine'
+  - name: 'google/cloud-sdk:latest'
     id: 'Push the Preview Link to GitHub'
     entrypoint: "/bin/bash"
     args: ['./scripts/github-create-comment.bash']
     secretEnv: ['GITHUB_ACCESS_TOKEN']
     env:
-      - 'PREVIEW_BUILD_URL=https://cicd-demo-$SHORT_SHA.angular.run'
+      - 'PREVIEW_BUILD_URL=https://cicd-demo-$SHORT_SHA.rl.run'
       - 'COMMIT_SHA=$COMMIT_SHA'
 
 images:
