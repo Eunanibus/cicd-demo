@@ -68,6 +68,7 @@ steps:
       - 'PREVIEW_BUILD_URL=https://cicd-demo-$SHORT_SHA.rl.run'
       - 'COMMIT_SHA=$COMMIT_SHA'
 
+# Build and push two new containers!
 images:
   - 'gcr.io/$PROJECT_ID/cicd_demo:$SHORT_SHA'
   - 'gcr.io/$PROJECT_ID/cicd_demo:latest'

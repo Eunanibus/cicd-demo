@@ -13,6 +13,6 @@ spec:
     spec:
       containers:
         - name: cicd_demo
-          image: gcr.io/cicd_demo/cicd_demo:_SHORT_SHA_
+          image: gcr.io/cicd-poc-research/cicd_demo:_SHORT_SHA_
           ports:
             - containerPort: 80
