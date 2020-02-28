@@ -16,7 +16,7 @@
     "lint": "eslint src/**/*.js",
     "lint:fix": "eslint --fix src/**/*.js",
     "test": "react-scripts test",
-    "test:all": "set CI=true && react-scripts test && npm run lint",
+    "test:all": "CI=true npm test && npm run lint",
     "eject": "react-scripts eject"
   },
   "husky": {
