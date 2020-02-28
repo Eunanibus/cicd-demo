@@ -73,6 +73,6 @@ images:
   - 'gcr.io/$PROJECT_ID/cicd_demo:latest'
 
 secrets:
-  - kmsKeyName: projects/cicd-demo/locations/global/keyRings/GITHUB_ACCESS_TOKEN/cryptoKeys/GITHUB_ACCESS_TOKEN
+  - kmsKeyName: projects/cicd-poc-research/locations/global/keyRings/GITHUB_ACCESS_TOKEN/cryptoKeys/GITHUB_ACCESS_TOKEN/cryptoKeyVersions/1
     secretEnv:
       GITHUB_ACCESS_TOKEN: CiQAnrt7qygISvnMNcdVw3fZrruWCkvzI5cUby5wFL/Jl9Xk2UASUQBLJb0z9jdCuN/PoSeSvpSx1fOKY7Mxx8ZInbz7UZkV5483a/te6mFeV4mDsF+dSxzFYIWRyX+3rBxW4m344RXWgHOO3WRfwVwkbfQHDUIaiA==
