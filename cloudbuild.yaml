@@ -44,7 +44,7 @@ steps:
     args:
       - '-c'
       - |
-        perl -pe "s/_SHORT_SHA_/$SHORT_SHA/g" scripts/cloudbuild/cicd_demo.template.yaml > cicd_demo.$SHORT_SHA.yaml
+        perl -pe "s/_SHORT_SHA_/$SHORT_SHA/g" cicd_demo.template.yaml > cicd_demo.$SHORT_SHA.yaml
   # Apply a new Ingress ressource for the build $SHORT_SHA
 
   - name: 'gcr.io/cloud-builders/kubectl'
