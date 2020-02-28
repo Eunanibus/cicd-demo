@@ -1,0 +1,16 @@
+steps:
+  - name: 'gcr.io/cloud-builders/npm'
+    id: 'Install dependencies'
+    args: ['install']
+
+  - name: 'gcr.io/cloud-builders/npm'
+    id: 'Test'
+    env:
+      - 'CI=true'
+    args: ['run', 'test', '--watchAll=false']
+
+  - name: 'gcr.io/cloud-builders/npm'
+    id: 'Build'
+    args: ['run', 'build']
+    env:
+      - 'BUILD_ID=$BUILD_ID'
