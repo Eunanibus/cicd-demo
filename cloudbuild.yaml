@@ -62,7 +62,7 @@ steps:
   - name: 'google/cloud-sdk:alpine'
     id: 'Push the Preview Link to GitHub'
     entrypoint: "/bin/bash"
-    args: ['./scripts/github-create-comment.bash']
+    args: ['/scripts/github-create-comment.bash']
     secretEnv: ['GITHUB_ACCESS_TOKEN']
     env:
       - 'PREVIEW_BUILD_URL=https://cicd-demo-$SHORT_SHA.angular.run'
