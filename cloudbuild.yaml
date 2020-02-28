@@ -57,6 +57,22 @@ steps:
       - 'CLOUDSDK_COMPUTE_ZONE=us-central1-a'
       - 'CLOUDSDK_CONTAINER_CLUSTER=cicd-demo-cluster'
 
+  # Send the preview domain to the issue thread on GitHub
+
+  - name: 'google/cloud-sdk:alpine'
+    id: 'Push the Preview Link to GitHub'
+    entrypoint: "/bin/bash"
+    args: ['./scripts/github-create-comment.bash']
+    secretEnv: ['GITHUB_ACCESS_TOKEN']
+    env:
+      - 'PREVIEW_BUILD_URL=https://cicd-demo-$SHORT_SHA.angular.run'
+      - 'COMMIT_SHA=$COMMIT_SHA'
+
 images:
   - 'gcr.io/$PROJECT_ID/cicd_demo:$SHORT_SHA'
   - 'gcr.io/$PROJECT_ID/cicd_demo:latest'
+
+secrets:
+  - kmsKeyName: projects/cicd-demo/locations/global/keyRings/GITHUB_ACCESS_TOKEN/cryptoKeys/GITHUB_ACCESS_TOKEN
+    secretEnv:
+      GITHUB_ACCESS_TOKEN: CiQAnrt7qygISvnMNcdVw3fZrruWCkvzI5cUby5wFL/Jl9Xk2UASUQBLJb0z9jdCuN/PoSeSvpSx1fOKY7Mxx8ZInbz7UZkV5483a/te6mFeV4mDsF+dSxzFYIWRyX+3rBxW4m344RXWgHOO3WRfwVwkbfQHDUIaiA==
