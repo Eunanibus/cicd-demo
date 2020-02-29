@@ -1,9 +1,9 @@
 apiVersion: v1
 kind: Service
 metadata:
-  name: cicd_demo-_SHORT_SHA_
+  name: cicd-demo-_SHORT_SHA_
 spec:
   ports:
     - port: 80
   selector:
-    app: cicd_demo-_SHORT_SHA_
+    app: cicd-demo-_SHORT_SHA_

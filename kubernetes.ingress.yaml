@@ -18,12 +18,12 @@ metadata:
     kubernetes.io/tls-acme: "true"
 spec:
   rules:
-    - host: cicd_demo-_SHORT_SHA_.angular.run
+    - host: cicd-demo-_SHORT_SHA_.rl.run
       http:
         paths:
           - path: /
             backend:
-              serviceName: cicd_demo-_SHORT_SHA_
+              serviceName: cicd-demo-_SHORT_SHA_
               servicePort: 80
   tls:
     - secretName: nginx-ingress-nginx-secret
