@@ -1,0 +1,18 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: cicd-demo-_SHORT_SHA_
+spec:
+  selector:
+    matchLabels:
+      app: cicd-demo-_SHORT_SHA_
+  template:
+    metadata:
+      labels:
+        app: cicd-demo-_SHORT_SHA_
+    spec:
+      containers:
+        - name: cicd-demo
+          image: gcr.io/cicd-poc-research/cicd-demo-_SHORT_SHA_
+          ports:
+            - containerPort: 80
